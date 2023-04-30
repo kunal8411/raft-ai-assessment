@@ -1,15 +1,53 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
+import DisplayGrid from "../../components/DisplayGrid";
+import React, { useState, useEffect } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+export default function Home(props) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems([
+      {
+        type: "bank- draft",
+        title: "Bank Draft",
+        position: "0",
+        imageUrl:
+          "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
+      },
+      {
+        type: "bill-of-lading",
+        title: "Bill of Lading",
+        position: "1",
+        imageUrl:
+          "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
+      },
+      {
+        type: "invoice",
+        title: "Invoice",
+        position: "2",
+        imageUrl:
+          "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
+      },
+      {
+        type: "bank-draft-2",
+        title: "Bank Draft 2",
+        position: "3",
+        imageUrl:
+          "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
+      },
+      {
+        type: "bill-of-lading-2",
+        title: "Bill of Lading 2",
+        position: "4",
+        imageUrl:
+          "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
+      },
+    ]);
+  }, []);
 
-export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-     Welcome
-      
-    </main>
-  )
+    <div>
+      <DisplayGrid items={items} />
+    </div>
+  );
 }
+
