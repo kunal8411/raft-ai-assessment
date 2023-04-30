@@ -7,11 +7,11 @@ export default async function handler(req, res) {
   let result = await dbConnect();
   switch (method) {
     case "GET":
-      const allUsers = await Document.find();
+      const allUsers = await Document.find().sort({ position: 1 });
       try {
         res.status(200).json({
           success: true,
-          data: [{ allUsers: allUsers }],
+          allUsers,
         });
       } catch (error) {
         res.status(400).json({ success: false });
@@ -22,6 +22,23 @@ export default async function handler(req, res) {
       try {
         const result = await user.save();
         res.status(201).json({ success: true, data: result });
+      } catch (error) {
+        res.status(400).json({ success: false, message: error });
+      }
+      break;
+    case "PUT":
+      const updatedItems = req.body;
+      try {
+        for (let i = 0; i < updatedItems.length; i++) {
+          await Document.findOneAndUpdate(
+            { _id: updatedItems[i]._id },
+            { $set: { position: i } }
+          );
+        }
+        res.status(200).json({
+          success: true,
+          message: "Items updated successfully",
+        });
       } catch (error) {
         res.status(400).json({ success: false, message: error });
       }

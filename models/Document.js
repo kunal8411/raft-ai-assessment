@@ -10,7 +10,7 @@ const DocumentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    position: { type: Number, required: true, unique: true },
+    position: { type: Number, required: true },
     imageUrl: { type: String, required: true },
   },
   { timestamps: true }
