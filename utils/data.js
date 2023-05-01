@@ -20,15 +20,13 @@ export async function updateData(updatedData) {
     let data = await fetchData();
     let result = await compareArrays(data, updatedData);
     if (!result) {
-      const response = await fetch(`/api`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
+     
+      const response = await axios({
+        method: "put",
+        url: "/api",
+        data: updatedData,
       });
-      const updatedDataResponse = await response.json();
-      return updatedDataResponse;
+      return response;
     }
   } catch (error) {
     console.error("Error updating data:", error);
