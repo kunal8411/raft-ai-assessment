@@ -25,7 +25,7 @@ module.exports = (phase) => {
     env: {
       mongodb_username: "kunalkhairnar96",
       mongodb_password: "mvgpFB77GVRktIxf",
-      base_url: "http://localhost:3000",
+      base_url: "https://raft-7wsctgz16-kunal8411.vercel.app",
     },
   };
 };
