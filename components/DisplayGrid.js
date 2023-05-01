@@ -10,6 +10,7 @@ import classes from "../src/styles/grid.module.css";
 
 function DisplayGrid({ items, updateData }) {
   const [data, setData] = useState(items);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     // Send modified data to the server every 5 seconds
@@ -20,9 +21,31 @@ function DisplayGrid({ items, updateData }) {
     return () => clearInterval(interval);
   }, [data]);
 
-  const SortableListItem = SortableElement(({ item }) => {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleItemClick = (item) => {
+    setSelectedImage(item);
+  };
+
+  const SortableListItem = SortableElement(({ item, onItemClick }) => {
+    const handleItemClick = () => {
+      onItemClick(item);
+    };
+
     return (
-      <div className={`grow`}>
+      <button className={`grow ${classes.flexDiv}`} onClick={handleItemClick}>
         <div>{item.title}</div>
         <img
           alt="Picture"
@@ -31,18 +54,24 @@ function DisplayGrid({ items, updateData }) {
           src={item.imageUrl}
           style={{ width: "40%" }}
         />
-      </div>
+      </button>
     );
   });
 
-  const SortableList = SortableContainer(({ data }) => {
+  const SortableList = SortableContainer(({ data, onItemClick }) => {
     return (
       <div
         className={`flex grid grid-cols-3 gap-3 content-normal w-96 ${classes.width_80}`}
       >
         {data.map((item, index) => {
           return (
-            <SortableListItem axis="xy" key={index} index={index} item={item} />
+            <SortableListItem
+              axis="xy"
+              key={index}
+              index={index}
+              item={item}
+              onItemClick={onItemClick}
+            />
           );
         })}
       </div>
@@ -54,7 +83,22 @@ function DisplayGrid({ items, updateData }) {
 
   return (
     <div className={classes.container}>
-      <SortableList axis={"xy"} data={data} onSortEnd={onSortEnd} />
+      <SortableList
+        axis={"xy"}
+        data={data}
+        onSortEnd={onSortEnd}
+        onItemClick={handleItemClick}
+      />
+      {selectedImage && (
+        <div className={classes.modalOverlay}>
+          <div className={classes.modalContent}>
+            <h2 style={{ color: "black", "font-size": "20px" }}>
+              {selectedImage.title}
+            </h2>
+            <img src={selectedImage.imageUrl} alt="Modal Image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
