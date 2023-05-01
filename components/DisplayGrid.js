@@ -23,6 +23,7 @@ function DisplayGrid({ items, updateData }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
+      //on click of esc button
       if (event.keyCode === 27) {
         setSelectedImage(null);
       }
@@ -52,7 +53,7 @@ function DisplayGrid({ items, updateData }) {
           width={"40%"}
           height={50}
           src={item.imageUrl}
-          style={{ width: "40%" }}
+          style={{ width: "45%", height:"80%" }}
         />
       </button>
     );
@@ -92,7 +93,7 @@ function DisplayGrid({ items, updateData }) {
       {selectedImage && (
         <div className={classes.modalOverlay}>
           <div className={classes.modalContent}>
-            <h2 style={{ color: "black", "font-size": "20px" }}>
+            <h2 style={{ color: "black", "fontSize": "20px" }}>
               {selectedImage.title}
             </h2>
             <img src={selectedImage.imageUrl} alt="Modal Image" />

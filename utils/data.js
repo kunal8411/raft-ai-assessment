@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function fetchData() {
   try {
-    const response = await axios.get("http://localhost:3000/api");
+    const response = await axios.get(`${process.env.base_url}/api`);
     if (!response.data.success) {
       console.error("Error fetching data");
       return;
@@ -20,7 +20,7 @@ export async function updateData(updatedData) {
     let data = await fetchData();
     let result = await compareArrays(data, updatedData);
     if (!result) {
-      const response = await fetch("http://localhost:3000/api", {
+      const response = await fetch(`${process.env.base_url}/api`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

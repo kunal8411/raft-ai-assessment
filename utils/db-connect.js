@@ -1,12 +1,9 @@
-// /lib/dbConnect.js
 import mongoose from "mongoose";
 
-let test =
-  "mongodb+srv://kunalkhairnar96:mvgpFB77GVRktIxf@cluster0.t8zcefr.mongodb.net/?retryWrites=true&w=majority";
-
+let mongoUrl = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@cluster0.t8zcefr.mongodb.net/?retryWrites=true&w=majority`;
 async function dbConnect() {
   const opts = {};
-  await mongoose.connect(test, {
+  await mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
