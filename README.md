@@ -1,38 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
+
+
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
+
+```bash
+1. git clone
+2. npm install
+3. npm run dev / yarn dev / npm dev
+
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Schema
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
 
-## Learn More
+ {
+   type:"",
+   title:"",
+   position:"",
+   imageUrl:""
+      
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## API
 
-## Deploy on Vercel
+```bash
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- GET API(/api/items) : To get all the items from the database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- POST API(/api/items) : To store any new Item in the database
+
+- PUT API(/api/items) : To change the sequence of the items in the database
+
+```
+
+## Features
+
+
+
+- Feature 1 : Drag and drop
+
+<a href="https://drive.google.com/uc?export=view&id=1KuflDWLDDlOraQeivl1FcZy8N1C0D4Ja"><img src="https://drive.google.com/uc?export=view&id=1KuflDWLDDlOraQeivl1FcZy8N1C0D4Ja" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+```bash
+
+
+
+1. Using the GET api call get all the items from the databse and store them in the UI in the grid structure,
+   3 items on the first row and 2 items on the second
+
+2. Using "react-sortable-hoc" library added the Drag and Drop feature.
+
+
+
+3. In the UI I am calling API call after every 5 seconds and get data fron the database,
+   and check on the UI if the sequence of items are matching with the database items, if sequence does not match then 
+   update the sequence in the database using PUT API(/api/items) call .
+
+
+
+4. Data will not update on each time user drag and drop, I have added the counter to validate the sequence after evry 5 seconds.
+
+
+
+```
+
+
+
+- Feature 2 :On click of card, display image and title in the middle of the screen, also on click of escape button, close the modal
+
+ 
+ <a href="https://drive.google.com/uc?export=view&id=1QOIgPQC-Q5fIgdYEWnwVrpvIiM7W0Q80"><img src="https://drive.google.com/uc?export=view&id=1QOIgPQC-Q5fIgdYEWnwVrpvIiM7W0Q80" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+ 
+```bash
+
+1. To add the feature of showing the modal in the middle of the screen once click on the card, 
+   added on click event on the card, once onClick event triggers then added the card data in one 
+   of the state variable(selectedItem)
+
+2. To show the modal, I am checking the condition if selectedItem have data then show the modal
+   in the middle of the screen with card title and card image.
+
+3. Also I have one useEffect hook which will check the keypress event, if the keypress event with keyCode 
+   equald 27 then set the selectedItem to null. 
+ 
+
+
+```
