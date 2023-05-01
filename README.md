@@ -1,6 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-
 
 ## Getting Started
 
@@ -53,7 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - Feature 1 : Drag and drop
 
-
+<a href="https://drive.google.com/uc?export=view&id=1KuflDWLDDlOraQeivl1FcZy8N1C0D4Ja"><img src="https://drive.google.com/uc?export=view&id=1KuflDWLDDlOraQeivl1FcZy8N1C0D4Ja" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
 ```bash
 
@@ -72,7 +69,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 
-4. Data will not update on each time user drag and drop, I have added the counter to validate the sequrnce after evry 5 seconds.
+4. Data will not update on each time user drag and drop, I have added the counter to validate the sequence after evry 5 seconds.
 
 
 
@@ -82,8 +79,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - Feature 2 :On click of card, display image and title in the middle of the screen, also on click of escape button, close the modal
 
+ 
+ <a href="https://drive.google.com/uc?export=view&id=1QOIgPQC-Q5fIgdYEWnwVrpvIiM7W0Q80"><img src="https://drive.google.com/uc?export=view&id=1QOIgPQC-Q5fIgdYEWnwVrpvIiM7W0Q80" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
-
+ 
 ```bash
 
 1. To add the feature of showing the modal in the middle of the screen once click on the card, 
