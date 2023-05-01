@@ -15,12 +15,27 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
+
+## Schema
+
+```bash
+- GET API(/api/items) : To get all the items from the database
+```
+
+## API
+```bash
+- GET API(/api/items) : To get all the items from the database
+- POST API(/api/items) : To store any new Item in the database
+- PUT API(/api/items) : To change the sequence of the items in the database
+```
 ## Features
 
 - Feature 1 : Drag and drop
 
 ```bash
-1. Used 
+
+1. Created one API call to get all the items
+2. Added the Drag and drop feature in the UI 
 
 
 ```
