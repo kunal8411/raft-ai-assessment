@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
-import dbConnect from "../../../utils/db-connect";
-import Document from "../../../models/Document";
+import dbConnect from "../../../../utils/db-connect";
+import Document from "../../../../models/Document";
 
 export default async function handler(req, res) {
   const { method } = req;

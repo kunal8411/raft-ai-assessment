@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function fetchData() {
   try {
-    const response = await axios.get(`/api`);
+    const response = await axios.get(`/api/items`);
     if (!response.data.success) {
       console.error("Error fetching data");
       return;
@@ -23,7 +23,7 @@ export async function updateData(updatedData) {
      
       const response = await axios({
         method: "put",
-        url: "/api",
+        url: "/api/items",
         data: updatedData,
       });
       return response;
