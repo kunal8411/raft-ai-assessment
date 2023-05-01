@@ -11,16 +11,9 @@ First, run the development server:
 
 
 ```bash
-
-npm run dev
-
-# or
-
-yarn dev
-
-# or
-
-pnpm dev
+1. git clone
+2. npm install
+3. npm run dev / yarn dev / npm dev
 
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -61,13 +54,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 
-1. Using the GET api call get all the items from the databse and store them in the UI in the grid structure, 3 items on the first row and 2 items on the seconf
+1. Using the GET api call get all the items from the databse and store them in the UI in the grid structure,
+   3 items on the first row and 2 items on the second
 
 2. Using "react-sortable-hoc" library added the Drag and Drop feature.
 
 
 
-3. In the UI I am calling API call after every 5 seconds and get data fron the database, and check on the UI if the sequence of items are matching with the database items, if sequence does not match then update the sequence in the database using PUT API(/api/items) call .
+3. In the UI I am calling API call after every 5 seconds and get data fron the database,
+   and check on the UI if the sequence of items are matching with the database items, if sequence does not match then 
+   update the sequence in the database using PUT API(/api/items) call .
 
 
 
@@ -85,11 +81,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```bash
 
-1. To add the feature of showing the modal in the middle of the screen once click on the card, added on click event on the card, once onClick event triggers then added the card data in one of the state variable(selectedItem)
+1. To add the feature of showing the modal in the middle of the screen once click on the card, 
+   added on click event on the card, once onClick event triggers then added the card data in one 
+   of the state variable(selectedItem)
 
-2. To show the modal, I am checking the condition if selectedItem have data then show the modal in the middle of the screen with card title and card image.
+2. To show the modal, I am checking the condition if selectedItem have data then show the modal
+   in the middle of the screen with card title and card image.
 
-3. Also I have one useEffect hook which will check the keypress event, if the keypress event with keyCode equald 27 then set the selectedItem to null. 
+3. Also I have one useEffect hook which will check the keypress event, if the keypress event with keyCode 
+   equald 27 then set the selectedItem to null. 
  
 
 
