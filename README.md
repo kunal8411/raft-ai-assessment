@@ -24,8 +24,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```bash
 
-- GET API(/api/items) : To get all the items from the database
-
+ {
+   type:"",
+   title:"",
+   position:"",
+   imageUrl:""
+      
+}
 ```
 
 
