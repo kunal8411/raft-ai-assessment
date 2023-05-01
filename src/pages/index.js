@@ -6,29 +6,22 @@ import { fetchData, updateData } from "../../utils/data";
 //utils
 import DisplayGrid from "../../components/DisplayGrid";
 
-export default function Home({ initialData }) {
-  const [items, setItems] = useState(initialData);
+export default function Home({}) {
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(async () => {
       const newData = await fetchData();
       setItems(newData);
     }, 5000);
-
+    async function getData() {
+      const initialData = await fetchData();
+      setItems(initialData);
+    }
+    getData();
     return () => clearInterval(interval);
   }, []);
   return (
-    <div>
-      <DisplayGrid items={items} updateData={updateData} />
-    </div>
+    <div>{items && items.length>0 && <DisplayGrid items={items} updateData={updateData} />}</div>
   );
-}
-
-export async function getStaticProps() {
-  const initialData = await fetchData();
-  return {
-    props: {
-      initialData,
-    },
-  };
 }
